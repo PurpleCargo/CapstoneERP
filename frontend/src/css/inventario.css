@@ -1,0 +1,71 @@
+.inventario {
+    display: flex;
+    justify-content: center;
+    align-text: center;
+    gap: 1.5rem;
+    margin-top: 200px;
+    //align-items: center;
+}
+
+.formulario {
+    background-color: #171030;
+    border-color: rgb(217 70 239);
+    border-style: solid;
+    border-radius: 7px;
+    padding: 15px;
+}
+
+.formulario label {
+    font-weight: bold;
+    color: rgb(217 70 239);
+}
+
+.formulario input {
+    border-color: rgb(217 70 239);
+    border-radius: 3px;
+}
+
+.lista {
+    background-color: #171030;
+    border-color: rgb(217 70 239);
+    border-style: solid;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 0;
+}
+
+.lista li {
+    color: rgb(217 70 239);
+    font-weight: bold;
+    align-items: center;
+}
+
+.lista ul button {
+    gap: 1em;
+    float: right;
+}
+
+.botones-lista {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    float: right;
+}
+
+.boton {
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: #171030;
+    color: rgb(217 70 239);
+    border-radius: 5px;
+    border-color: rgb(217 70 239);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.boton:hover {
+    background-color: rgb(134 25 143);
+    transition: 200ms
+}
