@@ -1,0 +1,13 @@
+.alerta {
+    display: block;
+    justify-content: center;
+}
+
+.alerta ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    list-style-type: none;
+}

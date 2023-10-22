@@ -165,8 +165,10 @@ export default function Inventario() {
                             )
                         } else {
                             return (
-                                <li style={{display: "flex"}} key={insumo.id}>
+                                <li style={{display: "flex"}} key={insumo.id} className='insumo'>
                                     {insumo.nombre}
+                                    {insumo.cantidad}
+                                    {insumo.cantidad_min}
                                     <button onClick={() => toggleEdit(insumo)} className='boton'>Edit</button>
                                     <button onClick={() => handleDelete(insumo.id)} className='boton'>X</button>
                                 </li>

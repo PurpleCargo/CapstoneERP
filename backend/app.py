@@ -30,6 +30,26 @@ def format_insumo(insumo):
         "cantidad_min": insumo.cantidad_min
     }
 
+#pickletype es un objeto de python, en nuestro caso sería un diccionario de {ingrediente: cantidad}
+class Receta(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ingredientes = db.Column(db.PickleType, nullable=False)
+    preparacion = db.Column(db.String(255), nullable=False)
+
+    def __repr__(self):
+        return f"Event: {self.ingredientes}"
+    
+    def __init__(self, ingredientes, preparacion):
+        self.ingredientes = ingredientes
+        self.preparacion = preparacion
+
+def format_receta(receta):
+    return {
+        "ingredientes": receta.ingredientes,
+        "id": receta.id,
+        "preparacion": receta.preparacion
+    }
+
 with app.app_context():
     db.create_all()
 
@@ -82,6 +102,50 @@ def update_insumo(id):
     insumo.update(dict(nombre = nombre, cantidad = cantidad, cantidad_min = cantidad_min))
     db.session.commit()
     return {'insumo': format_insumo(insumo.one())}
+
+#crear una receta
+@app.route('/recetas', methods = ['POST'])
+def crear_recetas():
+    ingredientes = request.json['ingredientes']
+    preparacion = request.json['preparacion']
+    receta = Receta(ingredientes, preparacion)
+    db.session.add(receta)
+    db.session.commit()
+    return format_receta(receta)
+
+# recuperar todas las recetas
+@app.route('/recetas', methods = ['GET'])
+def get_recetas():
+    recetas = Receta.query.order_by(Receta.id.asc()).all()
+    lista_recetas = []
+    for receta in recetas:
+        lista_recetas.append(format_receta(receta))
+    return {'recetas': lista_recetas}
+
+# recuperar una receta
+@app.route('/recetas/<id>', methods = ['GET'])
+def get_receta(id):
+    receta = Receta.query.filter_by(id=id).one()
+    formatted_receta = format_receta(receta)
+    return {'receta': formatted_receta}
+
+# borrar una receta
+@app.route('/recetas/<id>', methods = ['DELETE'])
+def delete_receta(id):
+    receta = Receta.query.filter_by(id=id).one()
+    db.session.delete(receta)
+    db.session.commit()
+    return f'Receta (id: {id}) eliminada!'
+
+# actualizar receta
+@app.route('/recetas/<id>', methods = ['PUT'])
+def update_receta(id):
+    receta = Receta.query.filter_by(id=id)
+    ingredientes = request.json['ingredientes']
+    preparacion = request.json['preparacion']
+    receta.update(dict(ingredientes = ingredientes, preparacion = preparacion))
+    db.session.commit()
+    return {'receta': format_insumo(receta.one())}
 
 if __name__ == '__main__':
     app.run()

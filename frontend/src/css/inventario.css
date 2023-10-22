@@ -40,6 +40,10 @@
     align-items: center;
 }
 
+.insumo {
+    gap: 0.5em;
+}
+
 .lista ul button {
     gap: 1em;
     float: right;
