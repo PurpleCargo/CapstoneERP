@@ -1,0 +1,47 @@
+.recetas {
+
+}
+
+.formulario-receta {
+    display: flex;
+    justify-content: center;
+}
+
+.formulario-receta input {
+    display: inline;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.formulario-receta button {
+    display: inline;
+    margin-left: 8px;
+}
+
+.preparacion {
+    display: flex;
+    gap: 0.5em;
+}
+
+.ayuda {
+    display: inline;
+    gap: 0.25em;
+}
+
+.lista-receta {
+    background-color: #171030;
+    border-color: rgb(217 70 239);
+    border-style: solid;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 0;
+}
+
+.lista-receta li {
+    color: rgb(217 70 239);
+    font-weight: bold;
+    align-items: center;
+    list-style-type: none;
+    gap: 0.25em;
+    outline: 1px solid rgb(74 4 78);
+}
