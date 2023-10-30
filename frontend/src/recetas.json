@@ -1,0 +1,20 @@
+{
+    "recetas": [
+        {
+            "id": 1,
+            "ingredientes": {
+                "azucar": "0.8",
+                "harina": "1.2"
+            }, 
+            "preparacion": "dsdasdfsa"
+        },
+        {
+            "id": 2,
+            "ingredientes": {
+                "azucar": "0.9",
+                "harina": "1.6"
+            }, 
+            "preparacion": "dsadsfasgGDfsa"
+        }
+    ]
+}
