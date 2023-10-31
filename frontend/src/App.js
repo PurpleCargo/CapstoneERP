@@ -6,10 +6,11 @@ import Inventario from './pages/Inventario';
 import Recetas from './pages/Recetas';
 import Restock from './pages/Restock';
 import Ventas from './pages/Ventas';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
   return (
-    <>
+    <ShoppingCartProvider>
       <Navbar/>
       <div>
         <Routes>
@@ -20,7 +21,7 @@ function App() {
           <Route path="/ventas" element={<Ventas />} />
         </Routes>
       </div>
-    </>
+    </ShoppingCartProvider>
   );
 }
 
