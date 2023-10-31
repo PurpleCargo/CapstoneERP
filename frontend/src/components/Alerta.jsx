@@ -31,6 +31,8 @@ export default function Alerta() {
                                 <li>{insumo.cantidad}</li>
                             </div>
                         )
+                    } else {
+                        return (null)
                     }
                 })}
             </ul>

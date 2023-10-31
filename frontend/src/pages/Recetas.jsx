@@ -22,6 +22,16 @@ export default function Recetas() {
         console.log("DATA:", data)
     }
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`${baseUrl}/recetas/${id}`)
+            const listaActualizada = listaRecetas.filter(receta => receta.id !== id)
+            setListaRecetas(listaActualizada);
+        } catch(err) {
+            console.error(err.message)
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -128,6 +138,7 @@ export default function Recetas() {
                                 ))}
                             </ul>
                             {receta.preparacion}
+                            <button type="button" onClick={() => handleDelete(receta.id)} className="boton-receta">Eliminar Receta</button>
                         </li>
                         )
                     })}

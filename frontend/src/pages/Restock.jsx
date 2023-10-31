@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import '../css/restock.css'
+import Grid from '@mui/material/Grid'
+import { RestockItem } from "../components/RestockItem";
 
 const baseUrl = "http://localhost:5000"
 
@@ -20,24 +22,14 @@ export default function Restock() {
 
     return(
         <>
-            <section>
-                <ul className="lista-restock">
-                    {listaRecetas.map(receta => {
-                        return(
-                        <li style={{display: "flex"}} key={receta.id}>
-                            <ul className="ayuda-restock">
-                                {Object.entries(receta.ingredientes).map(([ingrediente, cantidad]) => (
-                                    <li key={ingrediente}>{ingrediente}: {cantidad}</li>
-                                ))}
-                            </ul>
-                            {receta.preparacion}
-                            <button type="button">+</button>
-                            <button type="button">-</button>
-                        </li>
-                        )
-                    })}
-                </ul>
-            </section>
+            <h1>Restock</h1>
+            <Grid container spacing={{ xs: 2, md: 3}} columns={{ xs: 4, sm: 8, md: 12 }}>
+                {listaRecetas.map(receta => (
+                    <Grid item key={receta.id} xs={2} sm={4} md={4}>
+                        <RestockItem id={receta.id} ingredientes={receta.ingredientes} />
+                    </Grid>
+                ))}
+            </Grid>
         </>
     )
 }

@@ -20,6 +20,7 @@
 
 .nav button:hover {
     background-color: rgb(240 171 252);
+    transition: 200ms;
 }
 
 .nav ul {

@@ -45,3 +45,18 @@
     gap: 0.25em;
     outline: 1px solid rgb(74 4 78);
 }
+
+.boton-receta {
+    margin-left: 10px;
+    border-radius: 5px;
+    border-color: rgb(217 70 239);
+    background-color: #171030;
+    color: rgb(217 70 239);
+    font-weight: bold;
+}
+
+.boton-receta:hover {
+    background-color: rgb(134 25 143);
+    transition: 200ms;
+    cursor: pointer;
+}
